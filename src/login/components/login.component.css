@@ -13,43 +13,58 @@ ul {
 }
 
 .containerLog {
-    width: 350px;
     margin: auto;
     margin-top: 10%;
     text-align: center;
-    background-color: #FBFBFB;
-    padding: 50px 10px 50px 10px;
-    box-shadow: 2px 2px 5px grey;
 }
 
 bgGrade {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    left: 0px;
-    top:0px;
-    opacity: 0.8;
-    background-repeat: no-repeat;
-    background-size: cover;
-            z-index: -1;
-
-}
-
-    bgGrade:before {
-        content: "";
-        position: fixed;
-            top:0px;
+        position: absolute;
+        top: 0px;
         left: 0;
         right: 0;
-        z-index: -2;
-        display: block;
+        z-index: -1;
         background: url("./assets/bgGradeMaster.jpg");
         background-size: cover;
         width: 100%;
         height: 100%;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-    }
+        -webkit-transition:  ease-out 300ms;
+        -moz-transition: ease-out 300ms;
+        -o-transition:  ease-out 300ms;
+        transition:  ease-out 300ms;
+}
+
+  
+.blur {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+
+
+
+
+.form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.checkbox {
+    font-weight: normal;
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+.we {
+    width: 100% !important;
+}

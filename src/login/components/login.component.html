@@ -1,25 +1,24 @@
-<bgGrade>
+<bgGrade [ngClass]="{blur: isBlur}">
+</bgGrade>
 
 
-    <div class="container">
+    <div class="container"  (focus)="isBlur=true">
 
         <div class="containerLog">
-            <form accept-charset="UTF-8" role="form">
-                    <div class="form-group">
-                        <input class="form-control" placeholder="E-mail" name="email" type="text">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input name="remember" type="checkbox" value="Remember Me"> Remember Me
-                        </label>
-                    </div>
-                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-            </form>
+            <div class="wrapper">
+                <form class="form-signin">
+                    <br />
+                    <br />
+
+                    <input type="text" class="we form-control" name="username" placeholder="Benutzername" required="" (focus)="isBlur=true" (focusout)="isBlur=false" />
+                    <br />
+                    <input type="password" class="we form-control" name="password" placeholder="Passwort" required="" (focus)="isBlur=true" (focusout)="isBlur=false" />
+                    <br />
+                    <br />
+                 
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
 
-
-</bgGrade>

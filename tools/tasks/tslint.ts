@@ -15,7 +15,7 @@ export = function tslint(gulp, plugins) {
         rulesDirectory: NG2LINT_RULES
       }))
       .pipe(plugins.tslint.report(plugins.tslintStylish, {
-        emitError: true,
+        emitError: false,
         sort: true,
         bell: true
       }));

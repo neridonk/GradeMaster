@@ -10,6 +10,8 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 })
 export class Login {
 
+    isBlur: boolean = false;
+
     constructor( ) { }
 
  
