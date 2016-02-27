@@ -1,0 +1,55 @@
+:host {
+    display: block;
+    padding: 0 16px;
+}
+
+input {
+    width: 250px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 0 0 8px;
+}
+
+.containerLog {
+    width: 350px;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    background-color: #FBFBFB;
+    padding: 50px 10px 50px 10px;
+    box-shadow: 2px 2px 5px grey;
+}
+
+bgGrade {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top:0px;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-size: cover;
+            z-index: -1;
+
+}
+
+    bgGrade:before {
+        content: "";
+        position: fixed;
+            top:0px;
+        left: 0;
+        right: 0;
+        z-index: -2;
+        display: block;
+        background: url("./assets/bgGradeMaster.jpg");
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
