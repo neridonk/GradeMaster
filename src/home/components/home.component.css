@@ -1,13 +1,29 @@
 :host {
-  display: block;
-  padding: 0 16px;
+    display: block;
+    padding: 0 16px;
 }
 
 input {
-  width: 250px;
+    width: 250px;
 }
 
 ul {
-  list-style-type: none;
-  padding: 0 0 0 8px;
+    list-style-type: none;
+    padding: 0 0 0 8px;
+}
+
+
+.anim {
+      -webkit-transition: linear 100ms;
+    -moz-transition: linear 100ms;
+    -o-transition: linear 100ms;
+    transition: linear 100ms;
+}
+
+.dots{
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: black;
 }
