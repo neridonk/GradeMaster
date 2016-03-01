@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
 import {Position} from './position';
+import {Block} from './block/block.component';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {Position} from './position';
     moduleId: module.id,
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
-    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES]
+    directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, Block]
 })
 export class HomeComponent {
     newName: string;
@@ -17,25 +18,22 @@ export class HomeComponent {
     canDot: boolean = true;
 
     animationPath: Position[] = new Array<Position>();
+    myPosition: Position = new Position();
 
-    pointX: number = 20;
-    pointY: number = 20;
 
-    constructor() { }
+    constructor() {
+
+        this.myPosition.x = 20;
+        this.myPosition.y = 20;
+    }
 
 
     addnewPoint(e) {
 
 
-        this.canDot = false;
-
-        setTimeout(() => {
-            this.canDot = true;
-        }, 50);
-
         var newpos: Position = new Position(e.pageX, e.pageY);
         this.animationPath.push(newpos);
-        console.log(JSON.stringify(this.animationPath));
+        // console.log(JSON.stringify(this.animationPath));
 
     }
 
@@ -49,11 +47,16 @@ export class HomeComponent {
                 return;
             }
 
-            this.pointX = this.animationPath[i].x;
-            this.pointY = this.animationPath[i].y;
+            this.myPosition.x = this.animationPath[i].x;
+            this.myPosition.y = this.animationPath[i].y;
+
+            var pos = new Position()
+            pos.x = this.animationPath[i].x;
+            pos.y = this.animationPath[i].y;
+
+            this.myPosition = pos;
+
             i++;
-
-
 
         }, 100);
     }

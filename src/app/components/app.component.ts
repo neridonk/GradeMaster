@@ -16,7 +16,7 @@ import {NameListService} from '../../shared/services/name-list.service';
     directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
 })
 @RouteConfig([
-        { path: '/', name: 'Login', component: Login },
+        { path: '/', name: 'Home', component: HomeComponent },
     { path: '/about', name: 'About', component: AboutComponent }
 ])
 export class AppComponent { }

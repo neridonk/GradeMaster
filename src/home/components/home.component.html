@@ -1,8 +1,8 @@
-<div style="position:absolute; width:100%; height:100%; top:0px; left:0px" (mouseup)="canPush=false; isMouseDown = false; fahreLinie();" (mousemove)="isMouseDown && canDot==true ? addnewPoint($event):'' ">
+<div style="position:absolute; width:100%; height:100%; top:0px; left:0px" (mouseup)="canPush=false; isMouseDown = false; fahreLinie();" (mousemove)="isMouseDown  ? addnewPoint($event):'' ">
 
 
-    <div class="anim" (mousedown)="canPush ? isMouseDown = true:''" (mouseup)="canPush=false; isMouseDown = false; fahreLinie();" style="position:absolute; background-color:indianred;
-left:{{pointX}}px; top:{{pointY}}px; width:19px; height:19px;"></div>
+    <div class="anim" (mousedown)="canPush ? isMouseDown = true:''" (mouseup)="canPush=false; isMouseDown = false; fahreLinie();" style="position:absolute; background-color:blue;
+left:{{myPosition.x}}px; top:{{myPosition.y}}px; width:19px; height:19px;"></div>
 
 
     <div *ngFor="#path of animationPath; #i=index">
@@ -14,10 +14,9 @@ left:{{pointX}}px; top:{{pointY}}px; width:19px; height:19px;"></div>
     </div>
 
 
-    <div>
-
-
-    </div>
+    <Block [collideBenutzer]="myPosition"
+           
+           ></Block>
 
 
 </div>
