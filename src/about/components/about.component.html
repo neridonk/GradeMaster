@@ -1,1 +1,17 @@
+<table style="margin: auto;" class="table table-striped table-hover ">
 
+    <thead>
+        <tr>
+            <th class="tabelhead" style="width:50px;">Fachname</th>
+            <th class="tabelhead">Beschreibung</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="#fach of faecher; #i=index">
+
+
+        <td>{{fach.fa_name}}</td>
+        <td>{{fach.fa_beschreibung}}</td>
+
+    </tr>
+</table>

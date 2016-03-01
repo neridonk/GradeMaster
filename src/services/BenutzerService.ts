@@ -18,9 +18,17 @@ export class BenutzerService extends BaseService {
         this.httpS = http
     }
 
+    getFaecherById(id: number): Observable<any> {
+
+        var creds = 'klassenid=' + id;
+
+        return this.get('getFaecherByID.php', creds).map((response) => {
+            return <any>response.json();
+        });
+
+    }
 
 
-    //User einloggen
     login(username: string, passwort: string): Observable<LoginModel> {
 
         var creds = 'username=' + username + '&password=' + passwort;

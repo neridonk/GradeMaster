@@ -34,6 +34,7 @@ export class Login {
             alert('falsche Logindaten');
             return;
         }
+        Globales.setLoggedBenutzer(data[0]);
         this.router.navigate(['About']);
     }
 
