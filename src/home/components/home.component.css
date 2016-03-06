@@ -1,3 +1,26 @@
+.bggame {
+    background-attachment: scroll;
+    background-color: transparent;
+    background-image: url(./assets/dot.png);
+    background-position: left top;
+    background-repeat: repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.whiteoverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #6E6E6E;
+    opacity: 0.2;
+}
+
 :host {
     display: block;
     padding: 0 16px;
@@ -14,16 +37,31 @@ ul {
 
 
 .anim {
-      -webkit-transition: linear 100ms;
+    -webkit-transition: linear 100ms;
     -moz-transition: linear 100ms;
     -o-transition: linear 100ms;
     transition: linear 100ms;
 }
 
-.dots{
+.dots {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background-color: black;
+    background-color: #B2B2B0;
+    box-shadow: 0px 0px 10px #B4B2B2;
+    border-radius: 5px;
+    border: 2px solid #8F8F8F;
+}
+
+
+.player {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    background-color: #566195;
+    box-shadow: 0px 0px 10px #B4B2B2;
+    border-radius: 5px;
+    border: 2px solid #8F8F8F;
+    z-index:2;
 }

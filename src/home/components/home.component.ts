@@ -31,8 +31,16 @@ export class HomeComponent {
     addnewPoint(e) {
 
 
+        this.canDot = false;
+        setTimeout(() => {
+            this.canDot = true;
+        }, 90);
+
+
+
         var newpos: Position = new Position(e.pageX, e.pageY);
         this.animationPath.push(newpos);
+        
         // console.log(JSON.stringify(this.animationPath));
 
     }
@@ -49,12 +57,6 @@ export class HomeComponent {
 
             this.myPosition.x = this.animationPath[i].x;
             this.myPosition.y = this.animationPath[i].y;
-
-            var pos = new Position()
-            pos.x = this.animationPath[i].x;
-            pos.y = this.animationPath[i].y;
-
-            this.myPosition = pos;
 
             i++;
 

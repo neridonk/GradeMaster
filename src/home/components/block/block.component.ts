@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, ElementRef} from 'angular2/core';
 import {CORE_DIRECTIVES} from 'angular2/common';
 import {Benutzer, LoginModel} from '../../../Benutzer';
 import {Position} from '../position';
@@ -13,18 +13,18 @@ import {Position} from '../position';
 })
 export class Block {
 
-
-    @Input() set collideBenutzer(value: any) {
-
-        this.collisionCheck(value);
-        console.log(JSON.stringify(value));
-        this.benutzer = value;
-    }
-    benutzer: Position = new Position();
+    obj: Position = new Position();
+    goal: Position = new Position();
     benutzerWidth: number = 19;
     benutzerHeight: number = 19;
 
+    maxwidth: number = document.body.clientWidth.valueOf();
+    @Input()
+    Speed: number = 2000;
+
+    @Input()
     block: Position = new Position();
+
     width: number = 32;
     height: number = 32;
 
@@ -32,55 +32,60 @@ export class Block {
     linksReschts: any[] = new Array();
 
 
-    constructor() {
+    constructor(private elementRef: ElementRef) {
 
-        this.block.x = 32;
-        this.block.y = 220;
+        this.goal.x = 0;
+        this.goal.y = 220;
 
     }
+
     ngAfterViewInit() {
-
-        var width: number = document.body.clientWidth.valueOf();
-
-        for (var i = 0; i < width + 32; i++) {
-
-            width = width - 32;
-
-            this.linksReschts.push(width);
-        }
 
         this.movement();
     }
 
     private movement() {
-        var i = 0;
         var nachRechts: boolean = true;
+
+
         var id = setInterval(() => {
 
-            if (this.linksReschts.length - 1 == i)
+            //Dem collideObj seine x y nach absolutem setzten
+            this.obj.x = document.getElementById("benutzer").offsetLeft;
+            this.obj.y = document.getElementById("benutzer").offsetTop;
+
+            this.block.x = this.elementRef.nativeElement.children[0].offsetLeft;
+            this.block.y = this.elementRef.nativeElement.children[0].offsetTop;
+
+            this.collisionCheck();
+
+            if (this.block.x + 32 >= this.maxwidth)
                 nachRechts = false;
 
-            if (i == 0)
+            if (this.block.x <= 0)
                 nachRechts = true;
 
-            this.block.x = this.linksReschts[i];
-            // this.block.y = this.linksReschts[i].y;
 
-            nachRechts ? i++ : i--;
-
+            if (nachRechts) {
+                this.goal.x = this.maxwidth;
+            } else {
+                this.goal.x = 0;
+            }
 
         }, 10);
 
     }
 
 
-    private collisionCheck(obj: Position) {
+    private collisionCheck() {
 
+
+        
         //oben
-        if ((this.block.x <= obj.x + this.benutzerWidth && //links 
-            this.block.x + this.width >= obj.x) &&//rechts 
-            (this.block.y <= obj.y + this.benutzerHeight &&
-                this.block.y + this.height >= obj.y))//Oben Coollide - Primary
+        if (this.block.x <= this.obj.x + this.benutzerWidth && //links 
+            this.block.x + this.width >= this.obj.x &&//rechts 
+            this.block.y <= this.obj.y + this.benutzerHeight &&
+            this.block.y + this.height >= this.obj.y)//Oben Coollide - Primary
             alert("collidiert");
 
 
