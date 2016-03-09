@@ -14,27 +14,40 @@ ul {
 
 .containerLog {
     margin: auto;
-    margin-top: 10%;
+    margin-top: 20%;
     text-align: center;
 }
 
 bgGrade {
-        position: absolute;
-        top: 0px;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        background: url("./assets/bgGradeMaster.jpg");
-        background-size: cover;
-        width: 100%;
-        height: 100%;
-        -webkit-transition:  ease-out 300ms;
-        -moz-transition: ease-out 300ms;
-        -o-transition:  ease-out 300ms;
-        transition:  ease-out 300ms;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url("./assets/bgGradeMaster.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: ease-out 300ms;
+    -moz-transition: ease-out 300ms;
+    -o-transition: ease-out 300ms;
+    transition: ease-out 300ms;
 }
 
-  
+logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    background: url("./assets/logo.png");
+    height: 140px;
+    width: 350px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
 .blur {
     -webkit-filter: blur(3px);
     -moz-filter: blur(3px);
@@ -43,7 +56,18 @@ bgGrade {
     filter: blur(3px);
 }
 
+.transi {
+    background-color: transparent;
+}
 
+    .transi:after {
+        background-color: white;
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+    }
 
 
 .form-signin {

@@ -19,13 +19,28 @@ export class Block {
     benutzerHeight: number = 19;
 
     maxwidth: number = document.body.clientWidth.valueOf();
-    @Input()
-    Speed: number = 2000;
 
-    @Input()
+    @Input()//aniSpeed
+    Speed: number = 0;
+
+    @Input()//Start x Position
+    set x(x: any) {
+        this.goal.x = x;
+    }
+
+    @Input()//Start y Position
+    set y(y: any) {
+        this.goal.y = y;
+    }
+
+
+    @Input()//Current Position
     block: Position = new Position();
 
+    @Input()
     width: number = 32;
+
+    @Input()
     height: number = 32;
 
 
@@ -33,10 +48,6 @@ export class Block {
 
 
     constructor(private elementRef: ElementRef) {
-
-        this.goal.x = 0;
-        this.goal.y = 220;
-
     }
 
     ngAfterViewInit() {
@@ -59,7 +70,10 @@ export class Block {
 
             this.collisionCheck();
 
-            if (this.block.x + 32 >= this.maxwidth)
+            if (this.Speed == 0)
+                return;
+
+            if (this.block.x + this.width >= this.maxwidth)
                 nachRechts = false;
 
             if (this.block.x <= 0)

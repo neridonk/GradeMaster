@@ -1,21 +1,20 @@
 <bgGrade [ngClass]="{blur: isBlur}">
 </bgGrade>
-
+<logo></logo>
 
 <div class="container" (focus)="isBlur=true">
 
     <div class="containerLog">
         <div class="wrapper">
-            <form class="form-signin" (ngSubmit)="login()">
-                <br />
-                <br />
+            <form class="form-signin transi" (ngSubmit)="login()">
+                <h3>Login</h3>
+
 
                 <input type="text" class="we form-control" name="username" [(ngModel)]="loginModel.bn_anmeldename" placeholder="Benutzername" required="" (focus)="isBlur=true" (focusout)="isBlur=false" />
                 <br />
                 <input type="password" class="we form-control" [(ngModel)]="loginModel.bn_passwort" name="password" placeholder="Passwort" required="" (focus)="isBlur=true" (focusout)="isBlur=false" />
                 <br />
-                <br />
-
+                <a>Neu Hier? </a>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
             </form>
         </div>

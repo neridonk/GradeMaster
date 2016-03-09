@@ -12,4 +12,8 @@ export class Globales {
         localStorage.setItem('jwt', JSON.stringify(token));
     }
 
+    public static loggout() {
+        localStorage.removeItem('jwt');
+    }
+
 }

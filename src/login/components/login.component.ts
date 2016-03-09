@@ -19,9 +19,26 @@ export class Login {
     isBlur: boolean = false;
     loginModel: Benutzer = new Benutzer();
 
-    constructor(private benutzerService: BenutzerService, private router: Router) { }
+    constructor(private benutzerService: BenutzerService, private router: Router) {
+
+
+    }
 
     login() {
+
+        this.router.navigate(['About']);
+        var logili: any = new Array<any>();
+        var logi: LoginModel = new LoginModel();
+        logi.bn_id = 1;
+        logi.bn_klassen_id = 1;
+        logi.bn_nachname = "Mein Nachname";
+        logi.bn_vorname = "Domi";
+        logi.isLehrer = 1;
+        logili.push(logi);
+        this.gotoMainView(logili)
+        return;
+
+
         this.benutzerService.login(this.loginModel.bn_anmeldename, this.loginModel.bn_passwort).subscribe(
             data => this.gotoMainView(data),
             err => console.log(err)
@@ -35,7 +52,7 @@ export class Login {
             return;
         }
         Globales.setLoggedBenutzer(data[0]);
-        this.router.navigate(['About']);
+        location.reload();
     }
 
 }

@@ -1,11 +1,13 @@
 import {Component, ViewEncapsulation} from 'angular2/core';
-import {ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteConfig, Router} from 'angular2/router';
 import {NavbarComponent} from './navbar.component';
-import {ToolbarComponent} from './toolbar.component';
 import {Login} from '../../login/components/login.component';
 import {AboutComponent} from '../../about/components/about.component';
 import {HomeComponent} from '../../home/components/home.component';
+import {Admin} from '../../admin/components/admin.component';
+import {Noten} from '../../noten/components/noten.component';
 import {NameListService} from '../../shared/services/name-list.service';
+import {Globales} from '../../Globales';
 
 @Component({
     selector: 'sd-app',
@@ -13,10 +15,40 @@ import {NameListService} from '../../shared/services/name-list.service';
     moduleId: module.id,
     templateUrl: './app.component.html',
     encapsulation: ViewEncapsulation.None,
-    directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
+    directives: [ROUTER_DIRECTIVES, NavbarComponent]
 })
 @RouteConfig([
-        { path: '/', name: 'Home', component: HomeComponent },
-    { path: '/about', name: 'About', component: AboutComponent }
+    { path: '/', name: 'Login', component: Login },
+    { path: '/noten/:id', name: 'Noten', component: Noten },
+    { path: '/admin/:id', name: 'Admin', component: Admin },
+    { path: '/home', name: 'About', component: AboutComponent }
 ])
-export class AppComponent { }
+export class AppComponent {
+
+    public jwt;
+
+    constructor(private router: Router) {
+        this.jwt = Globales.geBenutzer();
+
+        console.log(this.jwt);
+
+
+        if (Globales.geBenutzer()) {
+
+            if (Globales.geBenutzer().isLehrer == 1) {
+                this.router.navigate(['Admin', { id: Globales.geBenutzer().bn_id }]);
+                return;
+            }
+            this.router.navigate(['About']);
+            return;
+        }
+
+
+        this.router.navigate(['Login']);
+
+    }
+
+
+
+
+}

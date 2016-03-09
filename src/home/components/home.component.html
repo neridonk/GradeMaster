@@ -2,11 +2,19 @@
 <div class="bggame"></div>
 <div class="whiteoverlay"></div>
 
-<div  style="position:absolute; width:100%; height:100%; top:0px; left:0px" (mouseup)="canPush=false; isMouseDown = false; fahreLinie();" (mousemove)="isMouseDown && canDot==true ? addnewPoint($event):'' ">
+<div style="position:absolute; width:100%; height:100%; top:0px; left:0px"
+     (mouseup)="canPush=false; isMouseDown = false; fahreLinie();"
+     (touchend)="canPush=false; isMouseDown = false; fahreLinie();"
+     (mousemove)="isMouseDown && canDot==true ? addnewPoint($event):''"
+     (touchmove)="isMouseDown && canDot==true ? addnewPointTouch($event):''">
 
 
-    <div id="benutzer" class="anim player" (mousedown)="canPush ? isMouseDown = true:''" (mouseup)="canPush=false; isMouseDown = false; fahreLinie();" style="
-left:{{myPosition.x}}px; top:{{myPosition.y}}px; width:19px; height:19px;"></div>
+    <div id="benutzer" class="anim player"
+         (mousedown)="canPush ? isMouseDown = true:''"
+         (touchstart)="canPush ? isMouseDown = true:''"
+         (mouseup)="canPush=false; isMouseDown = false; fahreLinie();"
+         (touchend)="canPush=false; isMouseDown = false; fahreLinie();"
+         style="left:{{myPosition.x}}px; top:{{myPosition.y}}px; width:19px; height:19px;"></div>
 
 
     <div *ngFor="#path of animationPath; #i=index">
@@ -18,7 +26,22 @@ left:{{myPosition.x}}px; top:{{myPosition.y}}px; width:19px; height:19px;"></div
     </div>
 
 
-    <Block [Speed]="5000"></Block>
+    <Block 
+           [y]="100"
+           [x]="0"
+           [width]="110"
+           [height]="20"
+           
+           ></Block>
+
+
+    <Block [Speed]="5000"
+           [y]="300"
+           [x]="0"></Block>
 
 
 </div>
+
+
+
+<div class="goalLine"> Goal  </div>

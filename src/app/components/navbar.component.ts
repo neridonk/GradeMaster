@@ -1,5 +1,8 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {BenutzerService} from '../../services/BenutzerService';
+import {Globales} from '../../Globales';
+
 
 @Component({
   selector: 'sd-navbar',
@@ -8,4 +11,12 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   styleUrls: ['./navbar.component.css'],
   directives: [ROUTER_DIRECTIVES]
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+ 
+
+    logout() {
+        Globales.loggout();
+        location.reload();
+
+    }
+}

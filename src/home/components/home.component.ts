@@ -28,21 +28,24 @@ export class HomeComponent {
     }
 
 
-    addnewPoint(e) {
+    addnewPointTouch(e) {//touch
+        this.addnewPointList(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
 
+    }
+
+    addnewPoint(e) {//noTouch
+        this.addnewPointList(e.pageX, e.pageY);
+    }
+
+    addnewPointList(x, y) {
 
         this.canDot = false;
         setTimeout(() => {
             this.canDot = true;
         }, 90);
 
-
-
-        var newpos: Position = new Position(e.pageX, e.pageY);
+        var newpos: Position = new Position(x, y);
         this.animationPath.push(newpos);
-        
-        // console.log(JSON.stringify(this.animationPath));
-
     }
 
     fahreLinie() {

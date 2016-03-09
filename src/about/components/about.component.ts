@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {Globales} from '../../Globales';
+import {Faecher} from './faecherMock';
 import {Benutzer, LoginModel} from '../../Benutzer';
 import {BenutzerService} from '../../services/BenutzerService';
 import {Router, ROUTER_DIRECTIVES} from 'angular2/router';
@@ -20,6 +21,12 @@ export class AboutComponent {
     constructor(private benutzerService: BenutzerService, private router: Router) {
 
 
+        console.log(Faecher.fach);
+        this.faecher = Faecher.fach;
+
+
+        return;
+
         this.benutzerService.getFaecherById(Globales.geBenutzer().bn_id).subscribe(
             data => this.faecher = data,
             err => console.log(err),
@@ -28,6 +35,17 @@ export class AboutComponent {
 
     }
 
+    goFach(id: number) {
+        this.router.navigate(['Noten', { id: id }]);
+    }
+
+    ngAfterViewInit() {
+        setTimeout(() => {
+            document.getElementById('newsfeed').style.left = "100%";
+        }, 90);
+
+
+    }
 
 
 }
