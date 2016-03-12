@@ -2,38 +2,44 @@ import {Component} from 'angular2/core';
 import {Globales} from '../../Globales';
 import {NotenMock} from './notenMock';
 import {Benutzer, LoginModel} from '../../Benutzer';
+import {LehrerService} from '../../services/LehrerService';
 import {BenutzerService} from '../../services/BenutzerService';
 import {Router, ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
 
 
 @Component({
-    selector: 'sd-noten',
+    selector: 'sd-faecher',
     moduleId: module.id,
-    templateUrl: './noten.component.html',
-    styleUrls: ['./noten.component.css'],
-    providers: [BenutzerService, ROUTER_DIRECTIVES]
+    templateUrl: './lehrerFaecher.component.html',
+    styleUrls: ['./lehrerFaecher.component.css'],
+    providers: [LehrerService, BenutzerService, ROUTER_DIRECTIVES]
 
 })
-export class Noten {
+export class LehrerFaecher {
 
 
-    noten: any[];
+    faecher: any[];
 
     constructor(private benutzerService: BenutzerService,
         private router: Router,
         private param: RouteParams
     ) {
 
-        this.benutzerService.getNotenByBenutzerIDandFachID(Globales.geBenutzer().bn_id, this.param.params['id']).subscribe(
-            data => this.noten = data,
+        var id = this.param.params['id'];
+
+        this.benutzerService.getFaecherById(id).subscribe(
+            data => this.faecher = data,
             err => console.log(err)
         );
+
 
     }
 
     ngAfterViewInit() {
+    }
 
-
+    goFach(id) {
+        this.router.navigate(['LehrerNoten', { id: id }]);
     }
 
 

@@ -18,7 +18,7 @@ export class BenutzerService extends BaseService {
         this.httpS = http
     }
 
-    getFaecherById(id: number): Observable<any> {
+    getFaecherById(id): Observable<any> {
 
         var creds = 'klassenid=' + id;
 
@@ -27,6 +27,17 @@ export class BenutzerService extends BaseService {
         });
 
     }
+
+    getNotenByBenutzerIDandFachID(bid: number, fid: any): Observable<any> {
+
+        var creds = 'benutzerid=' + bid + '&fachid=' + fid;
+
+        return this.get('getNotenByBenutzerIDandFachID.php', creds).map((response) => {
+            return <any>response.json();
+        });
+
+    }
+
 
 
     login(username: string, passwort: string): Observable<LoginModel> {

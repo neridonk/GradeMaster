@@ -1,8 +1,8 @@
 
 <div *ngIf="noten" class="noteHeader">
-    
+
     <div>{{noten[0].fa_name}}</div>
-     
+
 </div>
 
 <table class="table table-striped table-hover tableuser">
@@ -20,7 +20,7 @@
 
         <td>{{note.no_klassenarbeit_nr}}</td>
         <td>{{note.no_note}}</td>
-        <td>{{note.no_datum_eintrag | date:'medium'}}</td>
+        <td>{{note.no_datum_eintrag}}</td>
 
     </tr>
 </table>

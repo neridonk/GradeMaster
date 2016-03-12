@@ -21,13 +21,12 @@ export class AboutComponent {
     constructor(private benutzerService: BenutzerService, private router: Router) {
 
 
-        console.log(Faecher.fach);
-        this.faecher = Faecher.fach;
+        if (!Globales.geBenutzer()) {
+            return;
+        }
 
 
-        return;
-
-        this.benutzerService.getFaecherById(Globales.geBenutzer().bn_id).subscribe(
+        this.benutzerService.getFaecherById(Globales.geBenutzer().bn_klassen_id).subscribe(
             data => this.faecher = data,
             err => console.log(err),
             () => console.log(JSON.stringify(this.faecher))

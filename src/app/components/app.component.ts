@@ -6,6 +6,8 @@ import {AboutComponent} from '../../about/components/about.component';
 import {HomeComponent} from '../../home/components/home.component';
 import {Admin} from '../../admin/components/admin.component';
 import {Noten} from '../../noten/components/noten.component';
+import {LehrerFaecher} from '../../lehrerFaecher/components/lehrerFaecher.component';
+import {LehrerNoten} from '../../lehrerNoten/components/lehrerNoten.component';
 import {NameListService} from '../../shared/services/name-list.service';
 import {Globales} from '../../Globales';
 
@@ -20,7 +22,9 @@ import {Globales} from '../../Globales';
 @RouteConfig([
     { path: '/', name: 'Login', component: Login },
     { path: '/noten/:id', name: 'Noten', component: Noten },
-    { path: '/admin/:id', name: 'Admin', component: Admin },
+    { path: '/lehrer/:id', name: 'Admin', component: Admin },
+    { path: '/lehrerFaecher/:id', name: 'LehrerFaecher', component: LehrerFaecher },
+    { path: '/lehrerNoten/:id', name: 'LehrerNoten', component: LehrerNoten },
     { path: '/home', name: 'About', component: AboutComponent }
 ])
 export class AppComponent {

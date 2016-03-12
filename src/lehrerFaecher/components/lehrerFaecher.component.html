@@ -1,0 +1,17 @@
+<table class="table table-striped table-hover tableuser">
+
+    <thead class="tblH">
+        <tr>
+            <th class="tabelhead" style="width:50px;">Fachname</th>
+            <th class="tabelhead">Beschreibung</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="#fach of faecher; #i=index" class="trFach" style="cursor:pointer" (click)="goFach(fach.fa_id)">
+
+
+        <td>{{fach.fa_name}}</td>
+        <td>{{fach.fa_beschreibung}}</td>
+
+    </tr>
+</table>

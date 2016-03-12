@@ -23,14 +23,6 @@ h2 {
     background-color: #F3E893;
 }
 
-.trFach {
-    cursor: pointer;
-}
-
-    .trFach:hover {
-        background-color:burlywood;
-    }
-
 .newFeed {
     padding: 10px;
     border-top: 1px solid #C7C2C2;
