@@ -1,16 +1,17 @@
-<button type="button" (click)="" class="btn btn-success">
+<button type="button" (click)="neueNote.hidden=false" class="btn btn-success">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neue Note
 </button>
 
-<div>
+<div #neueNote hidden>
 
     <table class="table table-striped table-hover tableuser">
 
         <thead class="tblH">
             <tr>
                 <th class="tabelhead" style="width:50px;">Arbeit Nr.</th>
-                <th class="tabelhead">Benutzer</th>
+                <th class="tabelhead">Schueler</th>
                 <th class="tabelhead">Note</th>
+                <th class="tabelhead"></th>
             </tr>
         </thead>
 
@@ -21,15 +22,24 @@
             </td>
 
             <td>
-                <select [ngModel]="stringify(selectedBenutzer)" (ngModelchange)="updateSelectedValue($event)">
-                    <option *ngFor="#b of schuelerList" [value]=stringify(o)>{{b.b_name}}</option>
+                <select (change)="onChange($event.target.value)">
+                    <option value="-1">Bitte waehlen</option>
+                    <option *ngFor="#b of schuelerList" [value]="b.bn_id">{{b.bn_nachname}},  {{b.bn_vorname}}</option>
                 </select>
+
             </td>
 
             <td>
-                <input style="width:50px" class="form-control"  [(ngModel)]="selectedNote">
+                <input style="width:50px" class="form-control" [(ngModel)]="selectedNote">
             </td>
 
+            <td>
+
+                <button type="button" (click)="addNote()" class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Speichern
+                </button>
+
+            </td>
 
         </tr>
 

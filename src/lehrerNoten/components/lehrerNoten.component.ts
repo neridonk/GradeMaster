@@ -23,18 +23,26 @@ export class LehrerNoten {
     selectedNr: any;
     noten: any[];
 
+    fachid;
+
     constructor(private lehrerService: LehrerService,
         private router: Router,
         private param: RouteParams
     ) {
 
         var id = this.param.params['id'];
+        this.fachid = id;
 
         this.lehrerService.getNotenbyFachId(id).subscribe(
             data => this.noten = data,
             err => console.log(err)
         );
 
+
+        this.lehrerService.getAlleSchuelerbyKlassenID(Globales.currentKlasse).subscribe(
+            data => this.schuelerList = data,
+            err => console.log(err)
+        );
 
     }
 
@@ -57,11 +65,17 @@ export class LehrerNoten {
         );
     }
 
-    stringify(o: any): string {
-        return JSON.stringify(o);
+    onChange(id) {
+        this.selectedBenutzer = id;
     }
-    updateSelectedValue(event: string): void {
-        this.selectedBenutzer = JSON.parse(event);
+
+    public addNote() {
+        this.lehrerService.neueNote(this.fachid, this.selectedNr, this.selectedNote, this.selectedBenutzer).subscribe(
+            data => {
+                alert(JSON.stringify(data));
+            },
+            err => console.log(err)
+        );
     }
 
 

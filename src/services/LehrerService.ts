@@ -58,5 +58,27 @@ export class LehrerService extends BaseService {
 
     }
 
+    getAlleSchuelerbyKlassenID(id): Observable<any> {
+
+        var creds = 'klassenid=' + id;
+
+        return this.get('getAlleSchuelerbyKlassenID.php', creds).map((response) => {
+            return <any>response.json();
+        });
+
+    }
+
+
+    neueNote(fachid, klassenarbeitnr, note, benutzerid): Observable<any> {
+
+        var creds = 'fachid=' + fachid + '&klassenarbeitnr=' + klassenarbeitnr + '&note=' + note + '&benutzerid=' + benutzerid;
+
+        return this.get('insertNote.php', creds).map((response) => {
+            return <any>response.json();
+        });
+
+    }
+
+
 }
 

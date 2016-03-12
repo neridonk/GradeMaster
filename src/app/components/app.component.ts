@@ -40,7 +40,12 @@ export class AppComponent {
         if (Globales.geBenutzer()) {
 
             if (Globales.geBenutzer().isLehrer == 1) {
-                this.router.navigate(['Admin', { id: Globales.geBenutzer().bn_id }]);
+
+                if (document.URL.indexOf("lehrerNoten") != -1 || document.URL.indexOf("lehrerFaecher") != -1) {
+                    this.router.navigate(['Admin', { id: Globales.geBenutzer().bn_id }]);
+                }
+
+
                 return;
             }
             this.router.navigate(['About']);

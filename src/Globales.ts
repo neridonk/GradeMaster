@@ -4,6 +4,8 @@
 export class Globales {
 
 
+    public static currentKlasse = 0;
+
     public static geBenutzer(): LoginModel {
         return <LoginModel>JSON.parse(localStorage.getItem('jwt'));
     }
