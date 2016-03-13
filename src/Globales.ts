@@ -4,7 +4,16 @@
 export class Globales {
 
 
-    public static currentKlasse = 0;
+
+    public static setinKlasse(inClass) {
+        localStorage.setItem('klasse', inClass);
+    }
+
+    public static getinKlasse(): any {
+        return localStorage.getItem('klasse');
+    }
+
+
 
     public static geBenutzer(): LoginModel {
         return <LoginModel>JSON.parse(localStorage.getItem('jwt'));

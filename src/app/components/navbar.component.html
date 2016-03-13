@@ -1,5 +1,6 @@
 <nav>
-    <a [routerLink]="['About']">Home</a>
+    <a *ngIf="jwt.isLehrer == 0" [routerLink]="['About']">Home</a>
+    <a *ngIf="jwt.isLehrer ==1" href="/lehrer/{{jwt.bn_id}}">Home</a>
 
 
     <div class="navlogout" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</div>

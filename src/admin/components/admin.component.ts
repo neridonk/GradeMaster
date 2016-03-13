@@ -38,7 +38,7 @@ export class Admin {
     }
 
     gotoKlasse(id: number) {
-        Globales.currentKlasse = id;
+        Globales.setinKlasse(id);
         this.router.navigate(['LehrerFaecher', { id: id }]);
     }
 

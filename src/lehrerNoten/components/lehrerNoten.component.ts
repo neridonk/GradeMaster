@@ -31,15 +31,16 @@ export class LehrerNoten {
     ) {
 
         var id = this.param.params['id'];
+        var klassenid = this.param.params['klassenid'];
         this.fachid = id;
 
-        this.lehrerService.getNotenbyFachId(id).subscribe(
+        this.lehrerService.getNotenbyFachId(id, Globales.getinKlasse()).subscribe(
             data => this.noten = data,
             err => console.log(err)
         );
 
 
-        this.lehrerService.getAlleSchuelerbyKlassenID(Globales.currentKlasse).subscribe(
+        this.lehrerService.getAlleSchuelerbyKlassenID(klassenid).subscribe(
             data => this.schuelerList = data,
             err => console.log(err)
         );
@@ -72,7 +73,7 @@ export class LehrerNoten {
     public addNote() {
         this.lehrerService.neueNote(this.fachid, this.selectedNr, this.selectedNote, this.selectedBenutzer).subscribe(
             data => {
-                alert(JSON.stringify(data));
+                location.reload();
             },
             err => console.log(err)
         );

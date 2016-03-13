@@ -37,9 +37,9 @@ export class LehrerService extends BaseService {
 
     }
 
-    getNotenbyFachId(id): Observable<any> {
+    getNotenbyFachId(id, klassenid): Observable<any> {
 
-        var creds = 'fachid=' + id;
+        var creds = 'fachid=' + id + '&klassenid=' + klassenid;
 
         return this.get('getNotenByFachID.php', creds).map((response) => {
             return <any>response.json();

@@ -28,8 +28,7 @@ export class AboutComponent {
 
         this.benutzerService.getFaecherById(Globales.geBenutzer().bn_klassen_id).subscribe(
             data => this.faecher = data,
-            err => console.log(err),
-            () => console.log(JSON.stringify(this.faecher))
+            err => console.log(err)
         );
 
     }

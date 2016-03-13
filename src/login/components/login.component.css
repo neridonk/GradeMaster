@@ -56,20 +56,6 @@ logo {
     filter: blur(3px);
 }
 
-.transi {
-    background-color: transparent;
-}
-
-    .transi:after {
-        background-color: white;
-        -webkit-filter: blur(3px);
-        -moz-filter: blur(3px);
-        -o-filter: blur(3px);
-        -ms-filter: blur(3px);
-        filter: blur(3px);
-    }
-
-
 .form-signin {
     max-width: 380px;
     padding: 15px 35px 45px;

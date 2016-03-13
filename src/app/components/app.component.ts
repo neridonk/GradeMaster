@@ -34,14 +34,11 @@ export class AppComponent {
     constructor(private router: Router) {
         this.jwt = Globales.geBenutzer();
 
-        console.log(this.jwt);
-
-
         if (Globales.geBenutzer()) {
 
             if (Globales.geBenutzer().isLehrer == 1) {
 
-                if (document.URL.indexOf("lehrerNoten") != -1 || document.URL.indexOf("lehrerFaecher") != -1) {
+                if (document.URL.indexOf("lehrerNoten") == -1 && document.URL.indexOf("lehrerFaecher") == -1) {
                     this.router.navigate(['Admin', { id: Globales.geBenutzer().bn_id }]);
                 }
 

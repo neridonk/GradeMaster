@@ -12,7 +12,12 @@ import {Globales} from '../../Globales';
   directives: [ROUTER_DIRECTIVES]
 })
 export class NavbarComponent {
- 
+  jwt;
+
+ constructor(){
+
+     this.jwt = Globales.geBenutzer();
+ }
 
     logout() {
         Globales.loggout();
