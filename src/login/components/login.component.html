@@ -6,9 +6,10 @@
 
     <div class="containerLog">
         <div class="wrapper">
-            <form class="form-signin transi" (ngSubmit)="login()">
-                <h3>Login</h3>
-
+            <form class="form-signin transi" style="position:relative" (ngSubmit)="login()">
+            <div class="bluref"></div>
+                <br />
+                <br />
 
                 <input type="text" class="we form-control" name="username" [(ngModel)]="loginModel.bn_anmeldename" placeholder="Benutzername" required="" (focus)="isBlur=true" (focusout)="isBlur=false" />
                 <br />

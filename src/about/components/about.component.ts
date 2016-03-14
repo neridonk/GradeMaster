@@ -36,12 +36,8 @@ export class AboutComponent {
     goFach(id: number) {
         this.router.navigate(['Noten', { id: id }]);
     }
-
-    ngAfterViewInit() {
-        setTimeout(() => {
-            document.getElementById('newsfeed').style.left = "100%";
-        }, 90);
-
+    gotoGame() {
+        this.router.navigate(['HomeComponent']);
 
     }
 

@@ -69,9 +69,9 @@ export class LehrerService extends BaseService {
     }
 
 
-    neueNote(fachid, klassenarbeitnr, note, benutzerid): Observable<any> {
+    neueNote(fachid, klassenarbeitnr, note, benutzerid,klassenid): Observable<any> {
 
-        var creds = 'fachid=' + fachid + '&klassenarbeitnr=' + klassenarbeitnr + '&note=' + note + '&benutzerid=' + benutzerid;
+        var creds = 'fachid=' + fachid + '&klassenarbeitnr=' + klassenarbeitnr + '&note=' + note + '&benutzerid=' + benutzerid + '&klassenid=' + klassenid;
 
         return this.get('insertNote.php', creds).map((response) => {
             return <any>response.json();

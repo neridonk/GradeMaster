@@ -22,10 +22,15 @@ import {Globales} from '../../Globales';
 @RouteConfig([
     { path: '/', name: 'Login', component: Login },
     { path: '/noten/:id', name: 'Noten', component: Noten },
+    { path: '/noten/', name: 'Noten', component: Noten },
     { path: '/lehrer/:id', name: 'Admin', component: Admin },
+    { path: '/lehrer/', name: 'Admin', component: Admin },
     { path: '/lehrerFaecher/:id', name: 'LehrerFaecher', component: LehrerFaecher },
+    { path: '/lehrerFaecher/', name: 'LehrerFaecher', component: LehrerFaecher },
     { path: '/lehrerNoten/:id', name: 'LehrerNoten', component: LehrerNoten },
-    { path: '/home', name: 'About', component: AboutComponent }
+    { path: '/lehrerNoten/', name: 'LehrerNoten', component: LehrerNoten },
+    { path: '/home', name: 'About', component: AboutComponent },
+    { path: '/game', name: 'HomeComponent', component: HomeComponent }
 ])
 export class AppComponent {
 

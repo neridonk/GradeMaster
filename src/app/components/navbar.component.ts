@@ -5,23 +5,23 @@ import {Globales} from '../../Globales';
 
 
 @Component({
-  selector: 'sd-navbar',
-  moduleId: module.id,
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+    selector: 'sd-navbar',
+    moduleId: module.id,
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css'],
+    directives: [ROUTER_DIRECTIVES]
 })
 export class NavbarComponent {
-  jwt;
+    jwt;
 
- constructor(){
+    constructor() {
 
-     this.jwt = Globales.geBenutzer();
- }
+        this.jwt = Globales.geBenutzer();
+    }
 
     logout() {
         Globales.loggout();
-        location.reload();
+        location.replace("/");
 
     }
 }

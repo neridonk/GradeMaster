@@ -24,7 +24,7 @@ export const HOT_LOADER_PORT      = 5578;
 
 export const BOOTSTRAP_MODULE     = ENABLE_HOT_LOADING ? 'hot_loader_main' : 'main';
 
-export const APP_TITLE            = 'Angular 2 Seed';
+export const APP_TITLE            = 'Grade Manager';
 
 export const APP_SRC              = 'src';
 export const ASSETS_SRC           = `${APP_SRC}/assets`;
@@ -77,11 +77,16 @@ export const DEV_NPM_DEPENDENCIES: InjectableDependency[] = normalizeDependencie
 ]);
 
 export const PROD_NPM_DEPENDENCIES: InjectableDependency[] = normalizeDependencies([
-  { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims' },
-  { src: 'reflect-metadata/Reflect.js', inject: 'shims' },
-  { src: 'es6-shim/es6-shim.min.js', inject: 'shims' },
-  { src: 'systemjs/dist/system.js', inject: 'shims' },
-  { src: 'angular2/bundles/angular2-polyfills.min.js', inject: 'libs' }
+    { src: 'systemjs/dist/system-polyfills.src.js', inject: 'shims', dest: JS_DEST },
+    { src: 'reflect-metadata/Reflect.js', inject: 'shims', dest: JS_DEST },
+    { src: 'es6-shim/es6-shim.js', inject: 'shims', dest: JS_DEST },
+    { src: 'systemjs/dist/system.src.js', inject: 'shims', dest: JS_DEST },
+    { src: 'angular2/bundles/angular2-polyfills.js', inject: 'shims', dest: JS_DEST },
+    { src: 'rxjs/bundles/Rx.js', inject: 'libs', dest: JS_DEST },
+    { src: 'angular2/bundles/angular2.js', inject: 'libs', dest: JS_DEST },
+    { src: 'angular2/bundles/router.js', inject: 'libs', dest: JS_DEST },
+    { src: 'angular2/bundles/http.js', inject: 'libs', dest: JS_DEST },
+    { src: `bootstrap/dist/css/bootstrap.min.css`, inject: true, dest: CSS_DEST }
 ]);
 
 // Declare local files that needs to be injected

@@ -31,7 +31,7 @@ export class LehrerNoten {
     ) {
 
         var id = this.param.params['id'];
-        var klassenid = this.param.params['klassenid'];
+
         this.fachid = id;
 
         this.lehrerService.getNotenbyFachId(id, Globales.getinKlasse()).subscribe(
@@ -40,7 +40,7 @@ export class LehrerNoten {
         );
 
 
-        this.lehrerService.getAlleSchuelerbyKlassenID(klassenid).subscribe(
+        this.lehrerService.getAlleSchuelerbyKlassenID(Globales.getinKlasse()).subscribe(
             data => this.schuelerList = data,
             err => console.log(err)
         );
@@ -71,7 +71,7 @@ export class LehrerNoten {
     }
 
     public addNote() {
-        this.lehrerService.neueNote(this.fachid, this.selectedNr, this.selectedNote, this.selectedBenutzer).subscribe(
+        this.lehrerService.neueNote(this.fachid, this.selectedNr, this.selectedNote, this.selectedBenutzer, Globales.getinKlasse()).subscribe(
             data => {
                 location.reload();
             },

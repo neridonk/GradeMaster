@@ -17,7 +17,6 @@ import {Router, ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
 })
 export class LehrerFaecher {
 
-
     faecher: any[];
 
     constructor(private benutzerService: BenutzerService,
@@ -31,16 +30,10 @@ export class LehrerFaecher {
             data => this.faecher = data,
             err => console.log(err)
         );
-
-
-    }
-
-    ngAfterViewInit() {
     }
 
     goFach(id) {
         this.router.navigate(['LehrerNoten', { id: id }]);
     }
-
 
 }
